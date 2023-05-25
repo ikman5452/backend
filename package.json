@@ -1,0 +1,24 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "MerosiFarhang",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "dependencies": {
+    "bcrypt": "*",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "*",
+    "mongoose": "^6.10.0",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}
