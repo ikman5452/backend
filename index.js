@@ -48,7 +48,7 @@ mongoose.connection.on('error', (err) => {
 
 
 app.listen(port, () => {
-    console.log("Сервер дар порти " + port + " кор карда истодааст.")
+    console.log("Сервер дар порти " + port + " ба кор шурӯъ кард.")
 });
 
 

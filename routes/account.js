@@ -8,25 +8,24 @@ const config = require('../config/db');
 
 router.post('/reg', (req, res) => {
 
-    User.findOne({login: req.body.login}, function (err, user){
-        if(user) {
+    User.findOne({login: req.body.login}, function (err, user) {
+        if (user) {
             return res.json({success: false, msg: "Истифодабарандаи мазкур бо чунин логин мавҷуд аст!"})
-        }
-        else {
+        } else {
 
             let newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 login: req.body.login,
                 password: req.body.password,
+                createdDate: req.body.createdDate
             });
 
             User.addUser(newUser, (err, user) => {
-                if(err) {
-                    res.json({ success: false, msg: "Истифодабаранда илова карда нашуд!"})
-                }
-                else {
-                    res.json({ success: true, msg: "Истифодабаранда илова карда шуд."})
+                if (err) {
+                    res.json({success: false, msg: "Шумо аз қайд нагузаштед!"})
+                } else {
+                    res.json({success: true, msg: "Бомуваффақият аз қайд гузаштед."})
                 }
             });
 
@@ -41,7 +40,7 @@ router.post('/auth', (req, res) => {
     User.getUserByLogin(login, (err, user) => {
         if(err) throw err;
         if(!user) {
-            return res.json({success: false, msg: "Истифодабарандаи мазкур ёфт нашуд."})
+            return res.json({success: false, msg: "Парол ё логин хато ворид шудааст!."})
         }
         
         User.comparePass(password, user.password, (err, isMatch) => {
